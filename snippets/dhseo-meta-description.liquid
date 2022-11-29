@@ -1,0 +1,9 @@
+{% if request.page_type == 'index' %}
+{%- capture dhseo_meta_description -%}
+{{ page_description }} | {{ shop.name }}
+{%- endcapture -%}
+{% endif %}
+{% if dhseo_meta_description %}
+{%- assign dhpage_description = dhseo_meta_description | strip_html | strip -%}
+<meta name="description" content="{{ dhpage_description | escape }}">
+{% endif %}
